@@ -10,8 +10,9 @@ namespace common\models;
 
 use common\components\bases\BaseModel;
 use yii\imagine\Image;
+use yii\web\UploadedFile;
 
-/**
+/** create original filename for uploaded image. Save image with watermar. 
  * Class ImageUploader
  * @package common\models
  */
@@ -36,7 +37,7 @@ class ImageUploader extends BaseModel {
     }
     
     /**
-     * @param $root string way to the physical location of the fie. TODO check for Project Path
+     * @param $root string way to the physical location of the file.
      * @param $ext string file extension
      * @param bool $nameOnly
      * @param int $countTries
@@ -59,10 +60,10 @@ class ImageUploader extends BaseModel {
     }
     
     //@todo think about validating file size etc
-    /**
-     * @param $fileObject
-     * @param $root
-     * @return bool|string
+    /** fill
+     * @param $fileObject UploadedFile
+     * @param $root string path to upload folder
+     * @return bool|string genered name (not path)
      */
     public function upload($fileObject, $root)
     {
@@ -70,19 +71,18 @@ class ImageUploader extends BaseModel {
             return false;
         }
         $this->fileObj = $fileObject;
-        if (!$this->validate()) //todo must trhow errors
-        {
-            return false;
+        if (!$this->validate()) {
+            return false;//todo must trhow errors
         }
         $this->fileExt = $this->fileObj->extension;
         $this->fileName = self::generFilePath($root, $this->fileObj->extension, true);
-        $this->fileObj = Image::watermark(
+        $imageWithMark = Image::watermark(
             $fileObject->tempName, // before saving file the system set it to cache, this is it name
             \Yii::getAlias('@webroot/images/watermark.png') //todo make as parameter? 
         );
         $fullName = $this->fileName . '.' . $this->fileExt;
         $filePath = $root . '/' . $fullName;
-        $this->fileObj->save($filePath);
+        $imageWithMark->save($filePath);
         chmod($filePath, 0644);
         return $fullName;
     }

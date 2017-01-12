@@ -37,9 +37,9 @@ trait SimpleYiiTrait
     }
 
     /**
-     * @param $path
-     * @param int $mode
-     * @return bool
+     * @param $path string path to target file  
+     * @param int $mode oct file perms
+     * @return bool file exists now or not
      */
     protected function requireFolder($path, $mode = 0777)
     {
@@ -57,7 +57,13 @@ trait SimpleYiiTrait
             ? Yii::getAlias('@webroot')."/images"
             : Yii::getAlias('@webroot').$diffWay;
     }
-    
+
+    /**
+     * @param $data array, example : [ ['id' => 1, 'caption' => 'capt', 'position' => 'pos' ] ]
+     * @param string $key main key, example: 'id'
+     * @param array $fields, example: ['caption']
+     * @return array, example: [ 1 => ['caption' => 'capt ] ]  
+     */
     public function mapDataArray($data, $key = "id", $fields = []) {
         if (empty($fields)) { 
             $fields = ['*'];

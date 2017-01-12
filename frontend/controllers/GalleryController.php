@@ -36,6 +36,7 @@ class GalleryController extends BaseController
     public function __construct($id, \yii\base\Module $module, array $config = [])
     {
         parent::__construct($id, $module, $config);
+        //regist link to user uploading root folder
         $this->jsConfig['userUploadLink'] = \yii\helpers\Url::base(true). '/images/'.$this->getUserId();
     }
 

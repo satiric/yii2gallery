@@ -24,6 +24,7 @@ class UserFileForm extends BaseModel
 {
     use SimpleYiiTrait;
     const FORM_NAME = "inputsfile";
+    /** @var $userId string|int file owner */
     public $userId;
     public $fileId;
 
@@ -53,7 +54,7 @@ class UserFileForm extends BaseModel
      * @return UserFileRecord
      * @throws UploadFailureException
      */
-    protected function createFile(UploadedFile $file, $rootPath) {
+    protected function createFileRecord(UploadedFile $file, $rootPath) {
         $fileRecord = new UserFileRecord();
         $fileRecord->user_id = $this->userId;
         $fileRecord->file_name = (new ImageUploader())->upload($file, $rootPath);
@@ -127,7 +128,7 @@ class UserFileForm extends BaseModel
         for($i = 0, $size = count($files); $i < $size; $i++) {
             /** @var $file UploadedFile */
             $file = $files[$i];
-            $results[] = $this->createFile($file, $path);
+            $results[] = $this->createFileRecord($file, $path);
         }
         return $results;
     }

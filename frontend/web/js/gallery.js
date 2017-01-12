@@ -109,7 +109,5 @@ $(document).ready(function(){
         }
     });
 
-
     createFileInput("#input-44", appImages);
-
 });

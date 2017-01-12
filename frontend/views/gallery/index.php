@@ -96,7 +96,7 @@ $this->registerJs($js ,$this::POS_BEGIN);
         </div>
     </div>
 </div>
-
+<!-- todo make as widgets-->
 <div class="modal fade" id="removeImg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -105,13 +105,12 @@ $this->registerJs($js ,$this::POS_BEGIN);
                 <p>You deleting this image: </p>
                 <img :src = "img" class="img-responsive img-thumbnail"/>
                 <p>Are you sure? </p>
-                
-                    <button class="btn btn-danger btn-sm" @click="removeImg(id)"  aria-haspopup="true" aria-expanded="false" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove
-                    </button>
-                    <button class="btn btn-default btn-sm" aria-haspopup="true" aria-expanded="false" data-dismiss="modal">
-                        Cancel
-                    </button>
+                <button class="btn btn-danger btn-sm" @click="removeImg(id)"  aria-haspopup="true" aria-expanded="false" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove
+                </button>
+                <button class="btn btn-default btn-sm" aria-haspopup="true" aria-expanded="false" data-dismiss="modal">
+                    Cancel
+                </button>
             </div>
         </div>
     </div>
