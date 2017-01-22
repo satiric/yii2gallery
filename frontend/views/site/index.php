@@ -26,7 +26,7 @@ $this->registerJsFile("@web/js/site.js",['depends'=> 'frontend\assets\AppAsset']
 
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <canvas width="760px" height="560px" id="canvas"></canvas>
+                <canvas width="274px" height="547px" id="canvas"></canvas>
                </div>
         </div>
 
