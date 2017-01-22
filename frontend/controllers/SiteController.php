@@ -200,4 +200,13 @@ class SiteController extends BaseController
             'model' => $model,
         ]);
     }
+
+
+    public function actionSvg() {
+$data = $_GET['data'];
+        $headers = Yii::$app->response->headers;
+        $headers->add('Content-Type', 'image/svg+xml');
+        $headers->add('Content-Disposition', 'attachment; filename=diagram.svg');
+return $data;
+    }
 }

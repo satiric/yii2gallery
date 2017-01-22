@@ -2,3 +2,4 @@
 /index-test.php
 /images/*
 !/images/watermark.png
+!/images/high.png
