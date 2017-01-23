@@ -5,11 +5,13 @@
 $(document).ready(function(){
 
     var canvas = new fabric.Canvas('canvas');
-    var src = '/images/738.png';
+    var src = '/images/1.svg';
 
     var img = new Image();
     img.onload = function(){
         canvas.setBackgroundImage(img.src, canvas.renderAll.bind(canvas), {
+            width: canvas.width,
+            height: canvas.height,
             originX: 'left',
             originY: 'top',
             left: 0,
