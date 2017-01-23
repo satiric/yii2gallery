@@ -5,7 +5,20 @@
 $(document).ready(function(){
 
     var canvas = new fabric.Canvas('canvas');
-    var src = '/images/high.png';
+    var src = '/images/738.png';
+
+    var img = new Image();
+    img.onload = function(){
+        canvas.setBackgroundImage(img.src, canvas.renderAll.bind(canvas), {
+            originX: 'left',
+            originY: 'top',
+            left: 0,
+            top: 0
+        });
+    };
+    img.src = "/images/25.png";
+
+
     fabric.util.loadImage(src, function(img) {
         var oImg = new fabric.Image(img);
         oImg.scale(0.2).set({
@@ -13,6 +26,9 @@ $(document).ready(function(){
             top: 100,
         });
         canvas.add(oImg);
+
+
+
         $('.dwn').click(function() {
             var file = canvas.toSVG(
                 // Multiplier appears to accept decimals
