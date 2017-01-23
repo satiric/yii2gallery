@@ -37,7 +37,17 @@ $(document).ready(function(){
                 // width: '200mm',
                 // height: '300mm'
             );
-            window.location = '/site/svg?data=' + file;
+            $.ajax({
+                'url': '/site/svg',
+                'method': 'POST',
+                data: {
+                    'data':file
+                },
+                success: function(resp) {
+                    document.write(resp);
+                }
+            });
+            // window.location = '/site/svg?data=' + file;
         });
         // proceed();
         //$http.post('/postVendor', { filename: 'myfile.svg', file: file }).success(function (data) {...}
