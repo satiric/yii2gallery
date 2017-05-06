@@ -147,5 +147,4 @@ class GalleryController extends BaseController
             ? $this->jsonResponseObj("success")
             : $this->jsonBadResponseObj("Cannot save record", $file->getErrors());
     }
-
 }

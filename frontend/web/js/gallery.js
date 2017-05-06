@@ -43,7 +43,6 @@ function createFileInput(id, app) {
         $("#input-44").fileinput("enable").fileinput("refresh");
         document.dispatchEvent(loadedFile);
     });
-
 }
 
 $(document).ready(function(){

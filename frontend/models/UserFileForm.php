@@ -16,7 +16,7 @@ use common\models\ImageUploader;
 use common\traits\SimpleYiiTrait;
 use yii\web\UploadedFile;
 
-/**
+/** todo make as utils
  * Class UserFileForm
  * @package frontend\models
  */
@@ -121,7 +121,7 @@ class UserFileForm extends BaseModel
             throw new FolderCannotCreateException();
         };
 
-        if( !is_array($files) ) {
+        if( !is_array($files) || !isset($files[0])) {
             $files = [$files];
         }
         $results = [];

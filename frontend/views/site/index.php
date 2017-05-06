@@ -13,22 +13,14 @@ $this->registerJsFile("@web/js/site.js",['depends'=> 'frontend\assets\AppAsset']
     }
 </style>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success dwn" href="#">dwn</a></p>
+    <!--div class="jumbotron">
+        <p><a class="btn btn-lg btn-success dwn" href="#">Подготовить к печати</a></p>
     </div>
-
     <div class="body-content">
-
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <canvas width="274px" height="547px" id="canvas"></canvas>
-               </div>
+            </div>
         </div>
-
-    </div>
+    </div-->
 </div>
